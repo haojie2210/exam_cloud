@@ -1,0 +1,12 @@
+server:
+  port: 10010
+zuul:
+  ignored-services: '*'
+    routes:
+      consumer_route:
+        serviceId: provider-service
+        path: /provider_service/**
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka

@@ -6,4 +6,4 @@ spring:
       server:
         git:
           uri: https://github.com/haojie2210/exam_cloud.git
-          search-paths: config_repo
+          search-paths: exam_cloud/config_repo
