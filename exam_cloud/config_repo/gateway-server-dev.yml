@@ -10,7 +10,7 @@ spring:
           predicates:
             - Path=/sell/provider_service/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2
 
         - id: consumer-service
           uri: lb://consumer-service
@@ -18,7 +18,7 @@ spring:
           predicates:
             - Path=/sell/consumer_service/**
           filters:
-            - StripPrefix=1
+            - StripPrefix=2
 eureka:
   client:
     service-url:
