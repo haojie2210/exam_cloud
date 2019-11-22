@@ -1,0 +1,24 @@
+server:
+  port: 10010
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: provider_route
+        uri: lb://provider-service
+        predicates:
+        - Path=/sell/**
+        filters:
+        - StripPrefix=1
+        order: 0
+      - id: consumer_route
+        uri: lb://consumer-service
+        predicates:
+        - Path=/sell/**
+        filters:
+        - StripPrefix=1
+        order: 0
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
