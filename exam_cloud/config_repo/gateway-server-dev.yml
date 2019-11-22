@@ -4,20 +4,20 @@ spring:
   cloud:
     gateway:
       routes:
-      - id: provider_route
-        uri: lb://provider-service
-        predicates:
-        - Path=/sell/**
-        filters:
-        - StripPrefix=1
-        order: 0
-      - id: consumer_route
-        uri: lb://consumer-service
-        predicates:
-        - Path=/sell/**
-        filters:
-        - StripPrefix=1
-        order: 0
+        - id: provider_route
+          uri: lb://provider-service
+          order: 0
+          predicates:
+            - Path=/sell/**
+          filters:
+            - StripPrefix=1
+        - id: consumer_route
+          uri: lb://consumer-service
+          order: 0
+          predicates:
+            - Path=/sell/**
+          filters:
+            - StripPrefix=1
 eureka:
   client:
     service-url:
