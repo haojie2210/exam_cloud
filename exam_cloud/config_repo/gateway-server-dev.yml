@@ -4,14 +4,15 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: provider_route
+        - id: provider-service
           uri: lb://provider-service
           order: 0
           predicates:
             - Path=/sell/provider_service/**
           filters:
             - StripPrefix=1
-        - id: consumer_route
+
+        - id: consumer-service
           uri: lb://consumer-service
           order: 0
           predicates:
